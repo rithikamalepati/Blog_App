@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= post ? 'Edit' : 'New' %> Post</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1><%= post ? 'Edit' : 'Create' %> Post</h1>
+        <form action="<%= post ? '/blog/edit/' + id : '/blog' %>" method="POST">
+            <input type="text" name="title" placeholder="Title" value="<%= post ? post.title : '' %>" required>
+            <textarea name="content" placeholder="Content" required><%= post ? post.content : '' %></textarea>
+            <button type="submit"><%= post ? 'Update' : 'Create' %> Post</button>
+        </form>
+    </div>
+</body>
+</html>
